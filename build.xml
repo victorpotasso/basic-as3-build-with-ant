@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="compiler" default="default" basedir=".">
+
+    <!-- Get build properties-->
+
+    <property file="build.properties" />
+
+    <!-- All Task -->
+
+    <target name="default">
+	<antcall target="preloader" /> 
+        <antcall target="main" />			           
+    </target>
+
+    <!-- Preloader Task -->
+
+    <target name="preloader">
+        
+        <echo message="compiling ${preloaderswf}" />
+        
+        <exec executable="${MXMLC}" failonerror="true">
+            <arg line="${preloaderclass}"/>
+            <arg line="-source-path ${project-classes}"/>
+            <arg line="-debug=${debug}"/>
+            <arg line="-output ${project-deploy}/swf/${preloaderswf}"/>
+            <arg line="-target-player=${player-version}"/>
+            <arg line="-use-network=${use-network}"/>
+            <arg line="-compiler.include-libraries+=${project-assets}/preloader.swc" />
+            <arg line="-compiler.include-libraries+=${project-third-party}/bulkloader.r323.swc"/>
+            <arg line="-compiler.include-libraries+=${project-third-party}/greensock.swc"/>		
+            <arg line="-static-link-runtime-shared-libraries=${static-link-runtime-shared-libraries}"/>	
+        </exec>
+
+    </target>
+
+    <!-- Main Task -->
+
+    <target name="main">
+        
+        <echo message="compiling ${mainswf}" />
+        
+        <exec executable="${MXMLC}" failonerror="true">
+            <arg line="${mainclass}"/>	       
+            <arg line="-source-path ${project-classes}"/>
+            <arg line="-debug=${debug}"/>
+            <arg line="-output ${project-deploy}/swf/${mainswf}"/>
+            <arg line="-target-player=${player-version}"/>
+            <arg line="-use-network=${use-network}"/>
+            <arg line="-compiler.library-path '${project-assets}'"/>
+            <arg line="-compiler.library-path '${project-third-party}'"/>
+            <arg line="-static-link-runtime-shared-libraries=${static-link-runtime-shared-libraries}"/>	    	
+        </exec>
+    </target>
+	
+</project>
