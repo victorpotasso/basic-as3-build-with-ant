@@ -9,7 +9,7 @@ Getting Started
 
 **Configuration**
 
-First of all you have to configurate some variable on `buid.properties`.
+First of all you have to configure some variables on `buid.properties`.
 
 
 **Build**
