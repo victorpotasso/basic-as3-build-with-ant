@@ -4,10 +4,18 @@ What is it?
 -----------
 It's a basic AS3 build with Apache ANT.
 
-Build
+Getting Started
 -----
 
-It's very simple. Just go to the project directory on Terminal and run the command `ant` or `ant -buildfile build.xml`. These commands will run a default task on `buid.xml`. Also you can run a specific task e.g `ant preloader`.
+**Configuration**
+
+First of all you have to configurate some variable on `buid.properties`.
+
+
+**Build**
+
+It's very simple. Just go to the project directory on Terminal and run the command `ant` or `ant -buildfile build.xml`.
+These commands will run a default task on `buid.xml`. Also you can run a specific task e.g `ant preloader`.
 
 Thanks
 ------
